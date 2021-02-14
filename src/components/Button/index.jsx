@@ -1,9 +1,10 @@
 // importar react, proptypes
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Button.css';
 
 //componente funcional
-
+// type = button-long-text
 const Button = ({type, text, clickHandler}) => (
     <button className={type} onClick={() => clickHandler(text)}>
         <span>{text}</span>
@@ -17,4 +18,4 @@ Button.propTypes = {
     clickHandler: PropTypes.func.isRequired
 }
 
-export default Button
+export default Button;

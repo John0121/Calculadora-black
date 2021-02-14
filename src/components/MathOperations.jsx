@@ -1,24 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from './button';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Button from './Button'
 
-const MathOperations= ({onClickOperations, onClickEqual}) => (
-    /*colocamos 5 componentes Button donde le añadimos
-    un texto y una función a cada uno*/
+const MathOperations = ({onClickOperation, onClickEqual}) => (
     <section className="math-operations">
-        <Button text="+" clickHandler={onClickOperations} />
-        <Button text="-" clickHandler={onClickOperations} />
-        <Button text="*" clickHandler={onClickOperations} />
-        <Button text="/" clickHandler={onClickOperations} />
-        <Button text="=" clickHandler={onClickEqual} ></Button>
-     </section>
-);
-   
-    
-    MathOperations.propTypes = {
-        onClickOperations: PropTypes.func.isRequired,
-        onClickEqual: PropTypes.func.isRequired
-    }
+        <Button text="+" clickHandler={onClickOperation} />
+        <Button text="-" clickHandler={onClickOperation} />
+        <Button text="*" clickHandler={onClickOperation} />
+        <Button text="/" clickHandler={onClickOperation} />
+        <Button text="=" clickHandler={onClickEqual} />
+    </section>
+)
 
+MathOperations.propTypes = {
+    onClickOperation: PropTypes.func.isRequired,
+    onClickEqual: PropTypes.func.isRequired
+}
 
-export default MathOperations 
+export default MathOperations

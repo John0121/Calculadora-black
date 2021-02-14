@@ -1,56 +1,47 @@
-// esto es un componente con react.
-
-// importación
-import React from 'react';
-import Button from './components/button';
+import React, {useState} from 'react';
+import Functions from './components/Functions';
+import Numbers from './components/Numbers';
 import MathOperations from './components/MathOperations';
 import Result from './components/Result';
 import './App.css';
 
-// generación de la función del componente
-//función flecha o arrow function
+// Función Flecha o Arrow Function
 const App = () => {
 
-    const clickHandlerFuction = (text) => {
-        console.log ("Button.clickHandler1", text);
-    }
-    // lo que ejecuta la función
-    console.log("renderización de App");
+    //Array Destructuring
+    
+    // 1per posición: valor (que inicialmente es el valor por defecto)
+    // 2da posición: valor (funcion que me va a permitir modificar el valor por defecto)
+    //[xxxx], [setxxxx]
+    const [stack, setStack] = useState ("")    
+    
+    // Lo que ejecuta la función
+    console.log("Renderización de App")
     return (
-        <main className='react-calculator'>
-            <Result value={undefined} />
-        <div className="numbers">
-            <Button text="1" clickHandler={clickHandlerFuction}/>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>0</button>
-        </div>
-        <div className="functions">
-            <button>
-                Clear
-            </button>
-            <button>
-                R
-            </button>
-        </div>
+    <main className='react-calculator'>
+    <Result value={stack} />
+    <Numbers onClickNumber={number => {
+        console.log("Click en number", number)
+        setStack(number)
+    }}/>
+        
+        <Functions 
+            onContentClear={() => 
+                console.log("Content Clear")}
+            onDelete={() => 
+                console.log("onDelete")}
+        />
         <MathOperations 
-            onClickOperations={operation =>
+            onClickOperation={operation => 
                 console.log("Operation:", operation)
-            }
-            onClickEqual={equal =>
+            } 
+            onClickEqual={equal => 
                 console.log("Equal:", equal)
             }
         />
-
-    </main>)
+        </main>
+    )
 }
 
-
-// exportación
 export default App
+
